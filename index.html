@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Franchise</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0b0615;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar or Header */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px;
+      background: rgba(10, 10, 20, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: #ff003c;
+      text-shadow: 0 0 12px #ff003c;
+    }
+
+    .menu-btn {
+      background: linear-gradient(135deg, #ff003c, #8a2be2);
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 20px 15px 60px;
+      background: radial-gradient(circle at top, #3c1263 0%, #12051f 60%);
+    }
+
+    .poster-box {
+      width: 100%;
+      max-width: 420px;
+      height: 650px;
+      margin: 0 auto 25px;
+      border-radius: 24px;
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #bbb;
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    /* image lagane ke liye bas niche background-image ya img use kar lena */
+    .poster-box::before {
+      content: "Poster Image Here";
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      line-height: 1.3;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ff2d55;
+      text-shadow: 0 0 12px #ff2d55;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 16px;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      background: linear-gradient(135deg, #25D366, #18a34a);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 34px;
+      border-radius: 40px;
+      font-weight: 700;
+      box-shadow: 0 0 18px rgba(37, 211, 102, 0.6);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* Services */
+    .section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #ff2d55;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+    }
+
+    .card h3 {
+      color: #ff2d55;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* About */
+    .about {
+      text-align: center;
+      background: linear-gradient(135deg, #170726, #0b0615);
+      border-radius: 24px;
+      padding: 50px 25px;
+    }
+
+    .about p {
+      max-width: 900px;
+      margin: 18px auto 0;
+      line-height: 1.9;
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #08040f;
+    }
+
+    footer h3 {
+      color: #ff2d55;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+
+    /* Hero image responsive fix */
+    .hero img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+      margin: 0 auto 25px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Mobile adjustments for better view on the screen */
+    @media(max-width:768px) {
+      .hero img {
+        max-width: 100%;
+        border-radius: 18px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .hero {
+        padding: 15px 10px 45px;
+      }
+
+      .hero img {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 14px;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Mobile */
+    @media(max-width:768px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .poster-box {
+        height: 500px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">LA<span>SER</span></div>
+    <div class="menu-btn" onclick="openWhatsApp()">Join Franchise</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <a href="https://wa.link/whatsappid" target="_blank">
+      <img src="image.jpeg" alt="Offer Banner">
+    </a>
+
+    <h1>India’s No.1 <span>Laptop Repair Franchise</span> </h1>
+    <p>
+      Laser is a leading laptop repair franchise company in India, helping entrepreneurs
+      start and grow successful service centers with expert training, proven systems,
+      and nationwide brand trust.
+    </p>
+
+    <a href="https://wa.link/whatsappid"
+      class="btn">
+      WhatsApp Now
+    </a>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <h2 class="section-title">Our <span>Services</span></h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Laptop Repair Franchise</h3>
+        <p>Start your own branded laptop repair business with Laser’s complete franchise support.</p>
+      </div>
+
+      <div class="card">
+        <h3>Technical Training</h3>
+        <p>Get hands-on training for advanced laptop repair, chip-level servicing, and diagnostics.</p>
+      </div>
+
+      <div class="card">
+        <h3>Business Setup Support</h3>
+        <p>From branding to operations, we help you establish and scale your repair center quickly.</p>
+      </div>
+
+      <div class="card">
+        <h3>Marketing Assistance</h3>
+        <p>Boost your reach with Laser’s promotional strategies and customer acquisition support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section">
+    <div class="about">
+      <h2 class="section-title">Why <span>Laser?</span></h2>
+      <p>
+        With years of expertise in the repair industry, Laser has built a trusted reputation
+        as a leader in laptop repair franchises. Our mission is to empower entrepreneurs with
+        a profitable business model, technical excellence, and long-term growth opportunities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section">
+    <h2 class="section-title">Franchise <span>Benefits</span></h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>✔ Proven Business Model</h3>
+        <p>Operate with a tested and profitable framework designed for success.</p>
+      </div>
+
+      <div class="card">
+        <h3>✔ Nationwide Recognition</h3>
+        <p>Leverage the trust and credibility of a leading franchise brand.</p>
+      </div>
+
+      <div class="card">
+        <h3>✔ Ongoing Support</h3>
+        <p>Continuous mentorship, updates, and technical guidance for smooth growth.</p>
+      </div>
+
+      <div class="card">
+        <h3>✔ High Demand Industry</h3>
+        <p>Tap into the ever-growing demand for laptop repairs and servicing solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" style="text-align:center;">
+    <h2 class="section-title">Start Your <span>Journey</span></h2>
+    <p style="color:#ccc; max-width:700px; margin:auto;">
+      Connect with our team today and explore how you can become part of India’s leading laptop repair franchise
+      network.
+    </p>
+    <a href="https://wa.link/whatsappid" class="btn">
+      Connect on WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>LASER Franchise</h3>
+    <p>Empowering Entrepreneurs in Laptop Repair Industry</p>
+    <br>
+    <p>© 2026 Laser. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function openWhatsApp() {
+      window.open("https://wa.link/whatsappid", "_blank");
+    }
+  </script>
+
+</body>
+
+</html>
