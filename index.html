@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F@irPlay Franchise</title>
+  <title>TechCare Hub</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -22,179 +22,284 @@
       overflow-x: hidden;
     }
 
-    /* Navbar or Header */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(255, 0, 60, 0.18);
+      border-radius: 50%;
+      top: -180px;
+      left: -120px;
+      filter: blur(100px);
+      z-index: -1;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(138, 43, 226, 0.18);
+      border-radius: 50%;
+      bottom: -180px;
+      right: -120px;
+      filter: blur(100px);
+      z-index: -1;
+    }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 22px;
-      background: rgba(10, 10, 20, 0.95);
-      backdrop-filter: blur(10px);
+      padding: 16px 8%;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
+      background: rgba(10, 10, 20, 0.82);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #fff;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .logo span {
-      color: #ff003c;
-      text-shadow: 0 0 12px #ff003c;
+      color: #ff2d55;
+      text-shadow: 0 0 14px #ff2d55;
     }
 
     .menu-btn {
       background: linear-gradient(135deg, #ff003c, #8a2be2);
-      padding: 10px 18px;
-      border-radius: 30px;
-      cursor: pointer;
+      padding: 12px 22px;
+      border-radius: 40px;
       font-size: 14px;
       font-weight: 600;
-      box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(255, 0, 60, 0.35);
+      transition: 0.3s;
     }
 
-    /* Hero */
+    .menu-btn:hover {
+      transform: translateY(-3px);
+    }
+
     .hero {
-      position: relative;
-      text-align: center;
-      padding: 20px 15px 60px;
-      background: radial-gradient(circle at top, #3c1263 0%, #12051f 60%);
+  position: relative;
+  text-align: center;
+  padding: 130px 20px 110px;
+  background:
+    linear-gradient(rgba(5, 5, 15, 0.84), rgba(11, 6, 21, 0.90)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero *{
+  position: relative;
+  z-index: 2;
+transition: 0.3s;
+}
+
+.hero:hover{
+  transform: scale(1.01);
+}
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
     }
 
-    .poster-box {
-      width: 100%;
-      max-width: 420px;
-      height: 650px;
-      margin: 0 auto 25px;
-      border-radius: 24px;
-      border: 2px dashed rgba(255, 255, 255, 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #bbb;
-      font-size: 20px;
-      background: rgba(255, 255, 255, 0.03);
-      overflow: hidden;
-    }
-
-    /* image lagane ke liye bas niche background-image ya img use kar lena */
-    .poster-box::before {
-      content: "Poster Image Here";
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 24px;
+      color: #ff2d55;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .hero h1 {
-      font-size: 34px;
-      line-height: 1.3;
-      font-weight: 700;
-      margin-bottom: 15px;
+      font-size: 62px;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      font-weight: 800;
     }
 
     .hero h1 span {
       color: #ff2d55;
-      text-shadow: 0 0 12px #ff2d55;
+      text-shadow: 0 0 14px #ff2d55;
     }
 
     .hero p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 16px;
+      max-width: 780px;
+      margin: auto;
+      font-size: 17px;
       color: #ddd;
-      line-height: 1.8;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 28px;
-      background: linear-gradient(135deg, #25D366, #18a34a);
-      color: #fff;
       text-decoration: none;
       padding: 16px 34px;
       border-radius: 40px;
       font-weight: 700;
-      box-shadow: 0 0 18px rgba(37, 211, 102, 0.6);
       transition: 0.3s;
     }
 
-    .btn:hover {
-      transform: scale(1.08);
+    .btn-primary {
+      background: linear-gradient(135deg, #25D366, #18a34a);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.45);
     }
 
-    /* Services */
+    .btn-primary:hover {
+      transform: scale(1.06);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
     .section {
-      padding: 70px 8%;
+      padding: 90px 8%;
     }
 
     .section-title {
       text-align: center;
-      font-size: 34px;
-      margin-bottom: 45px;
+      margin-bottom: 55px;
     }
 
-    .section-title span {
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 span {
       color: #ff2d55;
+    }
+
+    .section-title p {
+      max-width: 760px;
+      margin: auto;
+      color: #cfcfcf;
+      line-height: 1.9;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.05);
-      padding: 28px;
-      border-radius: 22px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: 0.3s;
+      padding: 34px 28px;
+      border-radius: 28px;
+      transition: 0.35s;
+      backdrop-filter: blur(10px);
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 0 28px rgba(255, 0, 60, 0.18);
+      border-color: rgba(255, 0, 60, 0.4);
+    }
+
+    .icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff003c, #8a2be2);
+      font-size: 28px;
+      margin-bottom: 22px;
     }
 
     .card h3 {
-      color: #ff2d55;
+      font-size: 24px;
       margin-bottom: 12px;
+      color: #fff;
     }
 
     .card p {
-      color: #ddd;
-      font-size: 14px;
-      line-height: 1.7;
+      color: #d3d3d3;
+      line-height: 1.8;
+      font-size: 15px;
     }
 
-    /* About */
     .about {
-      text-align: center;
       background: linear-gradient(135deg, #170726, #0b0615);
-      border-radius: 24px;
-      padding: 50px 25px;
+      padding: 65px 35px;
+      border-radius: 34px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .about p {
       max-width: 900px;
-      margin: 18px auto 0;
-      line-height: 1.9;
-      color: #ccc;
+      margin: 20px auto 0;
+      line-height: 2;
+      color: #d0d0d0;
     }
 
-    /* Footer */
+    .cta {
+      margin: 0 8% 90px;
+      padding: 75px 30px;
+      text-align: center;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #1a0829, #0c0f25);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: auto;
+      line-height: 1.9;
+      color: #d0d0d0;
+    }
+
+    .cta .btn {
+      margin-top: 32px;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255,255,255,0.08);
       background: #08040f;
     }
 
     footer h3 {
       color: #ff2d55;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     footer p {
@@ -202,168 +307,221 @@
       font-size: 14px;
     }
 
-
-    /* Hero image responsive fix */
-    .hero img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      display: block;
-      margin: 0 auto 25px;
-      border-radius: 24px;
-      object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    /* Mobile adjustments for better view on the screen */
     @media(max-width:768px) {
-      .hero img {
-        max-width: 100%;
-        border-radius: 18px;
-      }
-    }
 
-    @media(max-width:480px) {
+      nav {
+        padding: 14px 5%;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+
       .hero {
-        padding: 15px 10px 45px;
+        padding: 100px 18px 80px;
       }
 
-      .hero img {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 14px;
-        margin-bottom: 20px;
-      }
-    }
-
-    /* Mobile */
-    @media(max-width:768px) {
       .hero h1 {
-        font-size: 26px;
+        font-size: 38px;
       }
 
-      .poster-box {
-        height: 500px;
+      .hero p {
+        font-size: 15px;
       }
 
-      .section-title {
-        font-size: 28px;
+      .section-title h2,
+      .cta h2 {
+        font-size: 32px;
       }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
   <nav>
-    <div class="logo">F@IR<span>PLAY</span></div>
-    <div class="menu-btn" onclick="openWhatsApp()">Join Franchise</div>
+    <div class="logo">Tech<span>Care</span></div>
+    <div class="menu-btn" onclick="openWhatsApp()">Join Now</div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <a href="https://wa.link/fairplayonlineid" target="_blank">
-      <img src="image.jpeg" alt="Offer Banner">
-    </a>
+  <section class="hero" onclick="openWhatsApp()" style="cursor:pointer;">
 
-    <h1>India’s No.1 <span>Laptop Repair Franchise</span> </h1>
-    <p>
-      F@irPlay is a leading laptop repair franchise company in India, helping entrepreneurs
-      start and grow successful service centers with expert training, proven systems,
-      and nationwide brand trust.
-    </p>
+    <div class="hero-content">
 
-    <a href="https://wa.link/fairplayonlineid"
-      class="btn">
-      WhatsApp Now
-    </a>
-  </section>
-
-  <!-- Services -->
-  <section class="section">
-    <h2 class="section-title">Our <span>Services</span></h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Laptop Repair Franchise</h3>
-        <p>Start your own branded laptop repair business with F@irPlay’s complete franchise support.</p>
+      <div class="hero-badge">
+        PREMIUM TECH SUPPORT PLATFORM
       </div>
 
-      <div class="card">
-        <h3>Technical Training</h3>
-        <p>Get hands-on training for advanced laptop repair, chip-level servicing, and diagnostics.</p>
-      </div>
+      <h1>India's Trusted <span>Laptop Repair & Tech Support</span> Platform</h1>
 
-      <div class="card">
-        <h3>Business Setup Support</h3>
-        <p>From branding to operations, we help you establish and scale your repair center quickly.</p>
-      </div>
-
-      <div class="card">
-        <h3>Marketing Assistance</h3>
-        <p>Boost your reach with F@irPlay’s promotional strategies and customer acquisition support.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section">
-    <div class="about">
-      <h2 class="section-title">Why <span>F@irPlay?</span></h2>
       <p>
-        With years of expertise in the repair industry, F@irPlay has built a trusted reputation
-        as a leader in laptop repair franchises. Our mission is to empower entrepreneurs with
-        a profitable business model, technical excellence, and long-term growth opportunities.
+        TechCare Hub helps entrepreneurs and service professionals build successful
+        laptop repair and technical support businesses with expert guidance,
+        advanced technical assistance, customer support systems, and scalable
+        business solutions designed for long-term growth.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="https://wa.link/fairplayonlineid" class="btn btn-primary">
+          WhatsApp Now
+        </a>
+
+        <a href="#services" class="btn btn-outline">
+          Explore Services
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="services">
+
+    <div class="section-title">
+      <h2>Our <span>Services</span></h2>
+
+      <p>
+        Professional technical solutions and support services designed for modern
+        repair businesses and growing entrepreneurs.
       </p>
     </div>
-  </section>
-
-  <!-- Benefits -->
-  <section class="section">
-    <h2 class="section-title">Franchise <span>Benefits</span></h2>
 
     <div class="cards">
+
       <div class="card">
-        <h3>✔ Proven Business Model</h3>
-        <p>Operate with a tested and profitable framework designed for success.</p>
+        <div class="icon">💻</div>
+        <h3>Laptop Repair Support</h3>
+        <p>
+          Get complete technical guidance and assistance for modern laptop repair and diagnostics.
+        </p>
       </div>
 
       <div class="card">
-        <h3>✔ Nationwide Recognition</h3>
-        <p>Leverage the trust and credibility of a leading franchise brand.</p>
+        <div class="icon">🛠️</div>
+        <h3>Advanced Technical Training</h3>
+        <p>
+          Learn chip-level servicing, troubleshooting, hardware diagnostics, and repair techniques.
+        </p>
       </div>
 
       <div class="card">
-        <h3>✔ Ongoing Support</h3>
-        <p>Continuous mentorship, updates, and technical guidance for smooth growth.</p>
+        <div class="icon">📈</div>
+        <h3>Business Growth Support</h3>
+        <p>
+          Scale your service center with branding strategies, customer management, and support systems.
+        </p>
       </div>
 
       <div class="card">
-        <h3>✔ High Demand Industry</h3>
-        <p>Tap into the ever-growing demand for laptop repairs and servicing solutions.</p>
+        <div class="icon">⚡</div>
+        <h3>Quick Assistance</h3>
+        <p>
+          Dedicated support and fast communication for smooth onboarding and operations.
+        </p>
       </div>
+
     </div>
+
   </section>
 
-  <!-- Contact -->
-  <section class="section" style="text-align:center;">
-    <h2 class="section-title">Start Your <span>Journey</span></h2>
-    <p style="color:#ccc; max-width:700px; margin:auto;">
-      Connect with our team today and explore how you can become part of India’s leading laptop repair franchise
-      network.
+  <section class="section">
+
+    <div class="about">
+
+      <div class="section-title">
+        <h2>Why Choose <span>TechCare Hub?</span></h2>
+      </div>
+
+      <p>
+        TechCare Hub focuses on providing reliable technical support solutions with a modern approach.
+        Our goal is to help entrepreneurs build sustainable repair businesses with trusted support,
+        practical knowledge, scalable growth systems, and premium customer experience.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Platform <span>Benefits</span></h2>
+
+      <p>
+        Everything you need to create a modern and successful technical support business.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🏆</div>
+        <h3>Professional Branding</h3>
+        <p>
+          Build a strong professional identity with modern branding and customer trust.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>Mobile Friendly Platform</h3>
+        <p>
+          Fully responsive modern design optimized for all devices and screen sizes.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h3>Reliable Experience</h3>
+        <p>
+          Smooth and secure support experience focused on user satisfaction and simplicity.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Easy Growth System</h3>
+        <p>
+          Simple onboarding and scalable business solutions designed for long-term growth.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="cta">
+
+    <h2>Start Your Tech Journey Today</h2>
+
+    <p>
+      Connect with our support team and explore professional technical solutions,
+      business guidance, and premium support services.
     </p>
-    <a href="https://wa.link/fairplayonlineid" class="btn">
+
+    <a href="https://wa.link/fairplayonlineid" class="btn btn-primary">
       Connect on WhatsApp
     </a>
+
   </section>
 
-  <!-- Footer -->
   <footer>
-    <h3>F@irPlay Franchise</h3>
-    <p>Empowering Entrepreneurs in Laptop Repair Industry</p>
+    <h3>TechCare Hub</h3>
+    <p>Professional Tech Support • Modern Solutions • Trusted Service</p>
     <br>
-    <p>© 2026 F@irPlay. All Rights Reserved.</p>
+    <p>© 2026 TechCare Hub. All Rights Reserved.</p>
   </footer>
 
   <script>
@@ -374,4 +532,4 @@
 
 </body>
 
-</html>
+```
